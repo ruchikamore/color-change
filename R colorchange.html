@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          height: 100vh;
+          margin: 0;
+          font-family: sans-serif;
+          background-color: #111;
+        }
+        .container {
+          height: 300px;
+          width: 400px;
+          border: 3px solid black;
+          margin: 10px;
+          text-align: center;
+          color: aliceblue;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-size: 2em;
+          border-radius: 20px;
+        }
+        button {
+          height: 50px;
+          width: 150px;
+          background-color: black;
+          color: white;
+          border-radius: 15px;
+          font-size: 1em;
+          font-weight: bold;
+          cursor: pointer;
+        }
+        h2 {
+          color: white;
+        }
+      </style>
+</head>
+<body>
+    <h2>Click on Button to Change Color</h2>
+  <div class="container">
+    <div>Color Changer</div>
+  </div>
+  <button>Change Color</button>
+
+  <script>
+    function generateColor() {
+      let r = Math.floor(Math.random() * 256);
+      let g = Math.floor(Math.random() * 256);
+      let b = Math.floor(Math.random() * 256);
+      return `radial-gradient(circle, yellow, rgb(${r}, ${g}, ${b}), red)`;
+    }
+
+    const button = document.querySelector("button");
+    const container = document.querySelector(".container");
+
+    button.addEventListener("click", () => {
+      container.style.background = generateColor();
+    });
+  </script>
+</body>
+</html>
